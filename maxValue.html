@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>maxValue</title>
+</head>
+
+<body>
+  <script>
+    let arr = [1, 5, 8, 11, 22, 45, 0, 21, 42, 88, 4, 3, 6, 89, 10, 12, 16, 18, 79];
+    var maxValue = arr[0];
+    for (var i = 0; i < arr.length; i++) {
+      var item = arr[i];
+
+      if (item > maxValue) {
+        maxValue = item;
+      }
+
+    }
+    // console.log(maxValue);
+    function change(arr) {
+      for (var i = 0; i < arr.length - 1; i++) {
+        for (var j = i + 1; j < arr.length; j++) {
+          if (arr[i] > arr[j]) {
+            var temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+          }
+        }
+      }
+      return arr;
+    }
+    // console.log('changge');
+    // console.log(change(arr));
+
+
+
+
+    let data = [
+      [
+        {
+          "traceId": "b86f8688c9045397",
+          "id": "b86f8688c9045397",
+          "name": "http:/hello",
+          "timestamp": 1497236689333000,
+          "duration": 25199,
+          "annotations": [
+            {
+              "timestamp": 1497236689333000,
+              "value": "sr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236689358000,
+              "value": "ss",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "b86f8688c9045397",
+          "id": "e3daa30c1d87f3c8",
+          "name": "call-home",
+          "parentId": "b86f8688c9045397",
+          "timestamp": 1497236689337000,
+          "duration": 21534,
+          "binaryAnnotations": [
+            {
+              "key": "lc",
+              "value": "unknown",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.class",
+              "value": "SleuthDemoController",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.method",
+              "value": "callHome",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "b86f8688c9045397",
+          "id": "368a95d008fb6eb3",
+          "name": "http:/shilj",
+          "parentId": "e3daa30c1d87f3c8",
+          "timestamp": 1497236689337000,
+          "duration": 6000,
+          "annotations": [
+            {
+              "timestamp": 1497236689337000,
+              "value": "cs",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236689339000,
+              "value": "sr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236689343000,
+              "value": "cr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236689343000,
+              "value": "ss",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ],
+          "binaryAnnotations": [
+            {
+              "key": "http.host",
+              "value": "localhost",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.method",
+              "value": "GET",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.path",
+              "value": "/shilj",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.url",
+              "value": "http://localhost:8080/shilj",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "sa",
+              "value": true,
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "b86f8688c9045397",
+          "id": "3d2085c87268659b",
+          "name": "http:/shilj",
+          "parentId": "e3daa30c1d87f3c8",
+          "timestamp": 1497236689345000,
+          "duration": 3805,
+          "annotations": [
+            {
+              "timestamp": 1497236689343000,
+              "value": "cs",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236689345000,
+              "value": "sr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236689348000,
+              "value": "cr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236689348000,
+              "value": "ss",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ],
+          "binaryAnnotations": [
+            {
+              "key": "http.host",
+              "value": "localhost",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.method",
+              "value": "GET",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.path",
+              "value": "/shilj",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.url",
+              "value": "http://localhost:8080/shilj",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "sa",
+              "value": true,
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "b86f8688c9045397",
+          "id": "7e821c4728ffbf35",
+          "name": "http:/shilj",
+          "parentId": "e3daa30c1d87f3c8",
+          "timestamp": 1497236689350000,
+          "duration": 3135,
+          "annotations": [
+            {
+              "timestamp": 1497236689349000,
+              "value": "cs",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236689350000,
+              "value": "sr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236689353000,
+              "value": "cr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236689353000,
+              "value": "ss",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ],
+          "binaryAnnotations": [
+            {
+              "key": "http.host",
+              "value": "localhost",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.method",
+              "value": "GET",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.path",
+              "value": "/shilj",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.url",
+              "value": "http://localhost:8080/shilj",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "sa",
+              "value": true,
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "b86f8688c9045397",
+          "id": "5aba50b199bfb653",
+          "name": "http:/shilj",
+          "parentId": "e3daa30c1d87f3c8",
+          "timestamp": 1497236689355000,
+          "duration": 2387,
+          "annotations": [
+            {
+              "timestamp": 1497236689353000,
+              "value": "cs",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236689355000,
+              "value": "sr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236689357000,
+              "value": "cr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236689357000,
+              "value": "ss",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ],
+          "binaryAnnotations": [
+            {
+              "key": "http.host",
+              "value": "localhost",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.method",
+              "value": "GET",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.path",
+              "value": "/shilj",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.url",
+              "value": "http://localhost:8080/shilj",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "sa",
+              "value": true,
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "b86f8688c9045397",
+          "id": "c8d427b6b188e66f",
+          "name": "home",
+          "parentId": "368a95d008fb6eb3",
+          "timestamp": 1497236689341000,
+          "duration": 1445,
+          "binaryAnnotations": [
+            {
+              "key": "lc",
+              "value": "unknown",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.class",
+              "value": "SleuthDemoController",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.method",
+              "value": "home",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "b86f8688c9045397",
+          "id": "3188da91f387308b",
+          "name": "home",
+          "parentId": "3d2085c87268659b",
+          "timestamp": 1497236689347000,
+          "duration": 906,
+          "binaryAnnotations": [
+            {
+              "key": "lc",
+              "value": "unknown",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.class",
+              "value": "SleuthDemoController",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.method",
+              "value": "home",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "b86f8688c9045397",
+          "id": "0c9db4bd5b9ea1f4",
+          "name": "home",
+          "parentId": "7e821c4728ffbf35",
+          "timestamp": 1497236689351000,
+          "duration": 1438,
+          "binaryAnnotations": [
+            {
+              "key": "lc",
+              "value": "unknown",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.class",
+              "value": "SleuthDemoController",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.method",
+              "value": "home",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "b86f8688c9045397",
+          "id": "d31da60533650681",
+          "name": "home",
+          "parentId": "5aba50b199bfb653",
+          "timestamp": 1497236689356000,
+          "duration": 744,
+          "binaryAnnotations": [
+            {
+              "key": "lc",
+              "value": "unknown",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.class",
+              "value": "SleuthDemoController",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.method",
+              "value": "home",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "traceId": "3b3721db56f32d4b",
+          "id": "3b3721db56f32d4b",
+          "name": "http:/hello",
+          "timestamp": 1497236687716000,
+          "duration": 176038,
+          "annotations": [
+            {
+              "timestamp": 1497236687717000,
+              "value": "sr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236687892000,
+              "value": "ss",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "3b3721db56f32d4b",
+          "id": "64bc12d4b67a648f",
+          "name": "call-home",
+          "parentId": "3b3721db56f32d4b",
+          "timestamp": 1497236687748000,
+          "duration": 143688,
+          "binaryAnnotations": [
+            {
+              "key": "lc",
+              "value": "unknown",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.class",
+              "value": "SleuthDemoController",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.method",
+              "value": "callHome",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "3b3721db56f32d4b",
+          "id": "73c54c88f91afbf2",
+          "name": "http:/shilj",
+          "parentId": "64bc12d4b67a648f",
+          "timestamp": 1497236687787000,
+          "duration": 76000,
+          "annotations": [
+            {
+              "timestamp": 1497236687787000,
+              "value": "cs",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236687836000,
+              "value": "sr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236687863000,
+              "value": "cr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236687865000,
+              "value": "ss",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ],
+          "binaryAnnotations": [
+            {
+              "key": "http.host",
+              "value": "localhost",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.method",
+              "value": "GET",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.path",
+              "value": "/shilj",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.url",
+              "value": "http://localhost:8080/shilj",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "sa",
+              "value": true,
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "3b3721db56f32d4b",
+          "id": "ecfd30e730e64955",
+          "name": "http:/shilj",
+          "parentId": "64bc12d4b67a648f",
+          "timestamp": 1497236687867000,
+          "duration": 6000,
+          "annotations": [
+            {
+              "timestamp": 1497236687867000,
+              "value": "cs",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236687868000,
+              "value": "sr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236687872000,
+              "value": "ss",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236687873000,
+              "value": "cr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ],
+          "binaryAnnotations": [
+            {
+              "key": "http.host",
+              "value": "localhost",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.method",
+              "value": "GET",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.path",
+              "value": "/shilj",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.url",
+              "value": "http://localhost:8080/shilj",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "sa",
+              "value": true,
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "3b3721db56f32d4b",
+          "id": "7b65bfb34091cacc",
+          "name": "http:/shilj",
+          "parentId": "64bc12d4b67a648f",
+          "timestamp": 1497236687875000,
+          "duration": 7874,
+          "annotations": [
+            {
+              "timestamp": 1497236687873000,
+              "value": "cs",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236687875000,
+              "value": "sr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236687883000,
+              "value": "cr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236687883000,
+              "value": "ss",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ],
+          "binaryAnnotations": [
+            {
+              "key": "http.host",
+              "value": "localhost",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.method",
+              "value": "GET",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.path",
+              "value": "/shilj",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.url",
+              "value": "http://localhost:8080/shilj",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "sa",
+              "value": true,
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "3b3721db56f32d4b",
+          "id": "9e28e72a2f88c518",
+          "name": "http:/shilj",
+          "parentId": "64bc12d4b67a648f",
+          "timestamp": 1497236687883000,
+          "duration": 7000,
+          "annotations": [
+            {
+              "timestamp": 1497236687883000,
+              "value": "cs",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236687885000,
+              "value": "sr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236687889000,
+              "value": "ss",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "timestamp": 1497236687890000,
+              "value": "cr",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ],
+          "binaryAnnotations": [
+            {
+              "key": "http.host",
+              "value": "localhost",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.method",
+              "value": "GET",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.path",
+              "value": "/shilj",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "http.url",
+              "value": "http://localhost:8080/shilj",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "sa",
+              "value": true,
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "3b3721db56f32d4b",
+          "id": "e8bde8115e6bd301",
+          "name": "home",
+          "parentId": "73c54c88f91afbf2",
+          "timestamp": 1497236687839000,
+          "duration": 17819,
+          "binaryAnnotations": [
+            {
+              "key": "lc",
+              "value": "unknown",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.class",
+              "value": "SleuthDemoController",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.method",
+              "value": "home",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "3b3721db56f32d4b",
+          "id": "5f2451a57e3e42c4",
+          "name": "home",
+          "parentId": "ecfd30e730e64955",
+          "timestamp": 1497236687870000,
+          "duration": 1404,
+          "binaryAnnotations": [
+            {
+              "key": "lc",
+              "value": "unknown",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.class",
+              "value": "SleuthDemoController",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.method",
+              "value": "home",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "3b3721db56f32d4b",
+          "id": "03810e7c342116ac",
+          "name": "home",
+          "parentId": "7b65bfb34091cacc",
+          "timestamp": 1497236687881000,
+          "duration": 1257,
+          "binaryAnnotations": [
+            {
+              "key": "lc",
+              "value": "unknown",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.class",
+              "value": "SleuthDemoController",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.method",
+              "value": "home",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        },
+        {
+          "traceId": "3b3721db56f32d4b",
+          "id": "d7beaff5afae8b65",
+          "name": "home",
+          "parentId": "9e28e72a2f88c518",
+          "timestamp": 1497236687887000,
+          "duration": 1096,
+          "binaryAnnotations": [
+            {
+              "key": "lc",
+              "value": "unknown",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.class",
+              "value": "SleuthDemoController",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            },
+            {
+              "key": "mvc.controller.method",
+              "value": "home",
+              "endpoint": {
+                "serviceName": "cloudlink-core-sleuth-shilj",
+                "ipv4": "192.168.20.208",
+                "port": 8080
+              }
+            }
+          ]
+        }
+      ]
+    ];
+
+
+
+    // 获取列表数据
+    function listData(data) {
+      let newData = [];
+      for (var i = 0; i < data.length; i++) {
+        let item = data[i]; //每一项数组
+        // + item[0].timestamp
+        let startTime = item[0].timestamp; //第一个请求开始时间
+        let maxDuration = item[0].duration; //最大的持续时长，定义第一个span的duration为最长持续时长
+
+        let parentNode = item[0]; //每一项的父亲节点
+        parentNode.children = [];
+
+        for (var j = 0; j < item.length; j++) {
+          var element = item[j]; //每一条数据
+          var eleDuration = element.duration + element.timestamp - startTime; //每一项的总持续时长 == 每一项的duration + 每一项的开始时间
+          // 判断最长的持续时长
+          if (maxDuration < eleDuration) {
+            maxDuration = eleDuration; //有异常情况
+            var servicePercent = parseInt((item[0].duration + element.duration) / maxDuration * 100) + '%';
+          }
+
+        }
+        let changeChildren = getchildData(parentNode, item, 0, []);
+
+        var listItem = {
+          'serviceName': item[0].name, //服务名字
+          'spanCount': item.length, //跨度
+          'duration': maxDuration,
+          'servicePercent': servicePercent ? servicePercent : "100%",
+          'startTime': startTimeFormcat(startTime),
+          'deepth': changeChildren.deepth,
+          'children': [changeChildren.children]
+        }
+        newData.push(listItem);
+      }
+
+      return newData
+    }
+    // 得到开始时间，时间转换
+    function startTimeFormcat(ns) {
+      return new Date(parseInt(ns) / 1000).toLocaleString().replace(/[\u4e00-\u9fa5]+/g, "").replace(/\//g, "-");
+    }
+
+    let changeData = listData(data);
+    console.log(changeData);
+
+
+
+
+    /*
+    * 封装孩子节点
+    */
+    function getchildData(parentObj, arr, index, indexArr) {
+      var obj = new Object();
+      obj = parentObj;
+      index++;
+      indexArr.push(index);
+      for (var i = 0; i < arr.length; i++) {
+        if (parentObj.id == arr[i].parentId) {
+          obj.children.push(arr[i]);
+          arr[i].children = [];
+          getchildData(arr[i], arr, index, indexArr)
+        }
+      }
+      var deepth = Math.max.apply(null, indexArr)
+      return {
+        'children': obj,
+        'deepth': deepth
+      }
+    }
+  </script>
+</body>
+
+</html>

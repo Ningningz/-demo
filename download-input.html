@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <!--The viewport meta tag is used to improve the presentation and behavior of the samples 
+      on iOS devices-->
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>GP Viewshed Task</title>
+
+  <style>
+    html,
+    body,
+    #mapDiv {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    #info {
+      bottom: 20px;
+      color: #444;
+      height: auto;
+      font-family: arial;
+      left: 20px;
+      margin: 5px;
+      padding: 10px;
+      position: absolute;
+      text-align: left;
+      width: 200px;
+      z-index: 40;
+    }
+  </style>
+
+  <script src="jquery.min.js"></script>
+  <script>
+    function xiazai() {
+      var data = {
+        //以下均可以
+        //downloadItems:'{"userId":"用户ID"}' 
+        downloadItems: JSON.stringify({ "userId": "用户ID", "userName": "用户姓名" })
+      };
+      DownLoadFile({ url: 'http://192.168.20.221:8050/cloudlink-core-log/log/business/v2/download', data: data });
+    }
+
+    var DownLoadFile = function (options) {
+      var config = $.extend(true, { method: 'post' }, options);
+      var $iframe = $('<iframe id="down-file-iframe" />');
+      var $form = $('<form target="down-file-iframe" method="' + config.method + '" />');
+      $form.attr('action', config.url);
+      for (var key in config.data) {
+        $form.append("<input type='hidden' name='" + key + "' value='" + config.data[key] + "' />");
+        console.log("<input type='hidden' name='" + key + "' value='" + config.data[key] + "' />")
+      }
+      $iframe.append($form);
+      console.log('append-------iframe');
+      $(document.body).append($iframe);
+      console.log('append-----iframe');
+      $form[0].submit();
+      console.log('submit');
+      $iframe.remove();
+    };
+  </script>
+</head>
+
+<body>
+  <button id="input" onclick="xiazai()">下载</button>
+</body>
+
+</html>

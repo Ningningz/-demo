@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>url+handler</title>
+</head>
+
+<body>
+  <script>
+    window.localStorage.setItem('appRoleId', 'appRoleId');
+    window.localStorage.setItem('enterpriseId', 'enterpriseId');
+    window.localStorage.setItem('enterpriseApp', 'enterpriseApp');
+    // localStorage.getItem('platRoleId')
+    var arr = [{
+      'text': '平台角色',
+      'objectId': '2121221',
+      'attributes': {
+        'url': '/cloudlink/jas/plat-admin/plat-role',
+        'handler': "localStorage.getItem('platRoleId')",
+      },
+      'children': []
+    }, {
+      'text': '平台用户',
+      'objectId': '3131313',
+      'attributes': {
+        'url': '/cloudlink/jas/plat-admin/plat-user/list',
+        'handler': "localStorage.getItem('platUserId')",
+      },
+      'children': [{
+        'text': '用户信息',
+        'objectId': '525252',
+        'attributes': {
+          'url': '/cloudlink/jas/plat-admin/plat-user/detail/info',
+          'handler': "localStorage.getItem('platUserId')",
+        },
+        'children': []
+      }, {
+        'text': '角色分配',
+        'objectId': '4141414',
+        'attributes': {
+          'url': '/cloudlink/jas/plat-admin/plat-user/detail/roleAssign',
+          'handler': "localStorage.getItem('platUserId')",
+        },
+        'children': []
+      }]
+    }, {
+      'text': '角色管理',
+      'objectId': '3131313',
+      'attributes': {
+        'url': '/cloudlink/jas/app-admin/app-role/list',
+        'handler': "localStorage.getItem('appRoleId')",
+      },
+      'children': []
+    }, {
+      'text': '企业列表',
+      'objectId': '2538',
+      'attributes': {
+        'url': '/cloudlink/jas/enterprise-admin/app-enterprise/list',
+        'handler': "localStorage.getItem('enterpriseId')",
+      },
+      'children': [{
+        'text': '基本信息',
+        'objectId': '92538',
+        'attributes': {
+          'url': '/cloudlink/jas/enterprise-admin/app-enterprise/list-view',
+          'handler': "localStorage.getItem('enterpriseId')",
+        },
+        'children': []
+      }, {
+        'text': '组织机构',
+        'objectId': '2538',
+        'attributes': {
+          'url': '/cloudlink/jas/enterprise-admin/organization/list',
+          'handler': "localStorage.getItem('enterpriseId')",
+        },
+        'children': []
+      }, {
+        'text': '企业应用下用户管理',
+        'objectId': '3131313',
+        'attributes': {
+          'url': '/cloudlink/jas/user-admin/app-user/list',
+          'handler': "localStorage.getItem('enterpriseApp')",
+        },
+        'children': [{
+          'text': 'jskjdflk',
+          'objectId': '3131313',
+          'attributes': {
+            'url': '/cloudlink/jas/user-admin/app-user/list',
+            'handler': "localStorage.getItem('enterpriseApp')",
+          },
+          children: []
+        }]
+      }, ]
+    }, {
+      'text': '企业认证审核',
+      'objectId': '25238',
+      'attributes': {
+        'url': '/cloudlink/jas/enterprise-admin/enterprise-auth/list',
+      },
+      'children': []
+    }, {
+      'text': '应用列表',
+      'objectId': '2538',
+      'attributes': {
+        'url': '/cloudlink/jas/app-admin/app/list',
+      },
+      'children': [{
+        'text': '基本信息',
+        'objectId': '456121221',
+        'attributes': {
+          'url': '/cloudlink/jas/app-admin/app/info',
+        },
+        'children': []
+      }, {
+        'text': '功能定义',
+        'objectId': '7853112',
+        'attributes': {
+          'url': '/cloudlink/jas/app-admin/app-func/',
+        },
+        'children': []
+      }, {
+        'text': '视图管理',
+        'objectId': '7853112',
+        'attributes': {
+          'url': '/cloudlink/jas/app-admin/app-view/list',
+        },
+        'children': []
+      }]
+    }];
+
+    function changeMenuRoute(arr) {
+      for (let i = 0; i < arr.length; i++) {
+        let item = arr[i];
+        let children = item.children;
+        let variable = eval(item.attributes.handler);
+        item.attributes.route = item.attributes.url + "/" + eval('test')();
+        if (children.length >= 1) {
+          this.changeMenuRoute(children);
+        }
+      }
+    }
+    //setTimeout(changeMenuRoute(arr),5000)
+    changeMenuRoute(arr);
+    console.log(arr);
+    window.localStorage.setItem('platRoleId', 'platRoleId')
+      //        changeMenuRoute(arr);
+    console.log(arr);
+
+    function test() {
+      alert(123);
+    }
+  </script>
+</body>
+
+</html>

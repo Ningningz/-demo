@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>tab 切换</title>
+  <style>
+    .navBar {
+      position: absolute;
+      min-height: 100%;
+      top: 0;
+      bottom: 0;
+      background-color: pink;
+    }
+    
+    .navBar .tab-head {
+      float: left;
+      width: 180px;
+    }
+    
+    div.item {
+      width: 100%;
+      padding: 10px;
+      padding-left: 40px;
+      margin: 0;
+      box-sizing: border-box;
+      text-align: left;
+      cursor: pointer;
+    }
+    
+    div.item>span {
+      width: 100%;
+      height: 100%;
+    }
+    
+    div.item>span>a {
+      text-decoration: none;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .tab-content {
+      border: solid cornflowerblue 1px;
+      float: left;
+      width: 180px;
+      height: 100%;
+    }
+    
+    .tab-content div {
+      display: none;
+    }
+    
+    .selected {
+      background-color: cornflowerblue;
+    }
+    
+    .tab-content .show {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navBar">
+    <div class="tab-head">
+      <div class="item selected">
+        <span>
+            <a href="#">1</a>
+        </span>
+      </div>
+      <div class="item">
+        <span>
+                <a href="#">2</a>
+            </span>
+      </div>
+      <div class="item">
+        <span>
+                <a href="#">3</a>
+            </span>
+      </div>
+    </div>
+    <div class="tab-content">
+      <div class="show">content1</div>
+      <div>content2</div>
+      <div>content3</div>
+    </div>
+  </div>
+
+</body>
+
+<script>
+  var tabs = document.getElementsByClassName('tab-head')[0].getElementsByClassName('item'),
+    contents = document.getElementsByClassName('tab-content')[0].getElementsByTagName('div');
+
+
+  (function changeTab(tab) {
+    for (var i = 0, len = tabs.length; i < len; i++) {
+      tabs[i].onclick = showTab;
+    }
+  })();
+
+  function showTab() {
+    for (var i = 0, len = tabs.length; i < len; i++) {
+      if (tabs[i] === this) {
+        tabs[i].className = 'item selected';
+        contents[i].className = 'show';
+      } else {
+        tabs[i].className = 'item';
+        contents[i].className = '';
+      }
+    }
+  }
+</script>
+
+</html>

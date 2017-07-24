@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>replace将双引号替换为单引号</title>
+</head>
+
+<body>
+  <script>
+    var arr = [{
+      'name': 'ning',
+      'sex': "女",
+      'age': 25,
+      'habby': '吃饭,睡觉'
+    }, {
+      'name': '路飞',
+      'sex': "男",
+      'age': '未知',
+      'habby': '睡觉,吃'
+    }];
+    let obj = {
+      a: 1,
+      b: 32
+    }
+    var str = JSON.stringify(arr);
+    var str2 = JSON.stringify(obj);
+    let reg = new RegExp(/\"/);
+    str2.replace(/a/g, "ml");
+    let rel = str.replace(/"/g, "'");
+    console.log(str);
+    console.log(rel);
+  </script>
+</body>
+
+</html>

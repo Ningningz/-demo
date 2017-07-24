@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>date</title>
+  <style>
+    .dateDiv {
+      margin: 100px auto;
+      height: 100px;
+      width: 300px;
+      width: 100%;
+    }
+
+    span {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dateDiv">
+    <span id="spanDate"></span>
+    <sapn id="spanoneDay"></sapn>
+
+    <span style="display:block;color:red ;border:1px solid #000" id="cehsi">
+    </span>
+    <span style="display:block;color:red ;border:1px solid #000" id="cehsi2">
+    </span>
+    <span style="display:block;color:red ;border:1px solid #000" id="cehsi3">
+    </span>
+    <span style="display:block;color:red ;border:1px solid #000" id="cehsi4">
+    </span>
+  </div>
+
+</body>
+<script>
+  let spanDate = document.getElementById('spanDate');
+  let spanoneDay = document.getElementById('spanoneDay');
+  let cehsi = document.getElementById('cehsi');
+  let cehsi2 = document.getElementById('cehsi2');
+  let cehsi3 = document.getElementById('cehsi3');
+  let cehsi4 = document.getElementById('cehsi4');
+  let date = new Date();
+  let oneDay = new Date(new Date().getTime() - 86400000);
+  spanDate.innerText = date;
+  spanoneDay.innerText = oneDay + '==========提前一天'
+
+  cehsi.innerText = 'new Date()参数===========' + formatDate(date).times;
+  cehsi2.innerText = '2017-07-12 参数========' + formatDate('2017-07-12').times;
+  cehsi3.innerText = '2017-07-12 09:30 参数========' + formatDate('2017-07-12 09:30').times;
+  cehsi4.innerText = '2017/07/12 09:30 参数========' + formatDate('2017/07/12 09:30').times;
+
+
+
+
+  function formatDate(date) {
+    if (typeof (date) == 'string' && date.indexOf('-') != -1) {
+      var newDate = date.replace(/-/g, '/');
+    } else {
+      var newDate = date;
+    }
+    console.log(newDate);
+    var dateObj = new Date(newDate);
+    // var dateObj = date;
+    var year = dateObj.getFullYear();
+    var month = dateObj.getMonth() + 1;
+    var day = dateObj.getDate();
+    var hours = dateObj.getHours();
+    var mins = dateObj.getMinutes();
+    var second = dateObj.getSeconds() ? dateObj.getSeconds() : '';
+    if (month < 10) { month = '0' + month; }
+    if (day < 10) { day = '0' + day; }
+    if (mins < 10) { mins = '0' + mins; }
+    if (second < 10) { second = '0' + second; }
+    let time = year + "-" + month + "-" + day + ' ' + hours + ':' + mins + ':' + second;
+    let timeIE = year + "/" + month + "/" + day + ' ' + hours + ':' + mins + ':' + second;
+    let times = new Date(time).getTime() ? new Date(time).getTime() : new Date(timeIE).getTime(); //得到毫秒数
+    let dates = {
+      times: times,
+      formcatDate: year + "-" + month + "-" + day,
+      formatTime: year + "-" + month + "-" + day + ' ' + hours + ':' + mins + ':' + second,
+    }
+    // return  + " " + hours + ":" + mins + ":" + second;
+    return dates;
+  }
+
+</script>
+
+</html>

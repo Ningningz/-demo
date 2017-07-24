@@ -1,0 +1,160 @@
+
+{
+
+
+  "rows": [
+    {
+      "text": "仪表盘",
+      "attributes": {
+        "route": "/cloudlink/dashboard"
+      },
+      "children": []
+    },
+    {
+      "text": "平台管理",
+      "attributes": {
+        "route": ""
+      },
+      "children": [
+        {
+          "text": "应用管理",
+          "attributes": {
+            "route": "/cloudlink/jas/app-admin/app"
+          },
+          "children": [
+            {
+              "text": "应用列表",
+              "attributes": {
+                "route": "/cloudlink/jas/app-admin/app/list"
+              },
+              "children": [
+                {
+                  "text": "基本信息",
+                  "attributes": {
+                    "route": "/cloudlink/jas/app-admin/app/info"
+                  },
+                  "children": []
+                },
+                {
+                  "text": "功能定义",
+                  "attributes": {
+                    "route": "/cloudlink/jas/app-admin/app-func/list"
+                  },
+                  "children": []
+                },
+                {
+                  "text": "角色管理",
+                  "attributes": {
+                    "route": "/cloudlink/jas/app-admin/app-role/list"
+                  },
+                  "children": []
+                },
+                {
+                  "text": "视图管理",
+                  "attributes": {
+                    "route": "/cloudlink/jas/app-admin/app-view/list"
+                  },
+                  "children": []
+                }
+
+              ]
+            }
+          ]
+        },
+        {
+          "text": "访问控制",
+          "attributes": {
+            "route": "/cloudlink/jas/plat-admin/plat-role"
+          },
+          "children": [
+            {
+              "text": "平台角色",
+              "attributes": {
+                "route": "/cloudlink/jas/plat-admin/plat-role"
+              },
+              "children": []
+            },
+            {
+              "text": "平台用户",
+              "attributes": {
+                "route": "/cloudlink/jas/plat-admin/plat-user/list"
+              },
+              "children": [
+                {
+                  "text": "用户信息",
+                  "attributes": {
+                    "route": "/cloudlink/jas/plat-admin/plat-user/detail/info"
+                  },
+                  "children": []
+                },
+                {
+                  "text": "角色分配",
+                  "attributes": {
+                    "route": "/cloudlink/jas/plat-admin/plat-user/detail/roleAssign"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+
+      ]
+    },
+    {
+      "text": "运营中心",
+      "attributes": {
+        "route": ""
+      },
+      "children": [
+        {
+          "text": "企业管理",
+          "attributes": {
+            "route": "/cloudlink/jas/enterprise-admin/app-enterprise/list"
+          },
+          "children": [
+            {
+              "text": "企业列表",
+              "attributes": {
+                "route": "/cloudlink/jas/enterprise-admin/app-enterprise/list"
+              },
+              "children": [
+                {
+                  "text": "基本信息",
+                  "attributes": {
+                    "route": "/cloudlink/jas/enterprise-admin/app-enterprise/list-view"
+                  },
+                  "children": []
+                },
+                {
+                  "text": "组织机构",
+                  "attributes": {
+                    "route": "/cloudlink/jas/enterprise-admin/organization/list"
+                  },
+                  "children": []
+                },
+                {
+                  "text": "用户信息",
+                  "attributes": {
+                    "route": "/cloudlink/jas/user-admin/app-user/list"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "text": "企业认证审核",
+              "attributes": {
+                "route": "/cloudlink/jas/enterprise-admin/enterprise-auth/list"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+
+

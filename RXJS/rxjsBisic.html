@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>rxjs基础</title>
+  <script src=""></script>
+  <script src="./../jquery.min.js"></script>
+</head>
+
+<body>
+  <button id='btn'></button>
+  <script>
+    let button = $('#btn');
+    Rx.Observable.fromEvent('button', 'click').subcribe(() => console.log('click'))
+  </script>
+</body>
+
+</html>

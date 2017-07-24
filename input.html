@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>input</title>
+  <style>
+    #input-text {
+      margin: 0;
+      padding: 0;
+      min-width: 20px;
+      width: 20px;
+      max-width: 120px;
+      height: 100%;
+      outline: none;
+      border: none;
+    }
+
+    #input-box {
+      height: 20px;
+      min-width: 30px;
+      max-width: 500px;
+      background-color: #fff;
+      border: 1px solid;
+      margin: 100px auto;
+      padding: 5px;
+    }
+
+    .chosen {
+      display: inline-block;
+      height: 22px;
+      line-height: normal;
+      background: #E5F5FD;
+      font-size: 12px;
+      color: #333;
+      padding: 3px 6px 7px 6px;
+      margin-right: 6px;
+      margin-bottom: 5px;
+      border-radius: 3px;
+    }
+
+    span.text {
+      display: inline-block;
+      font-size: 12px;
+      line-height: normal;
+      max-width: 80px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    span.chosen-remove {
+      cursor: pointer;
+      margin-left: 5px;
+      color: #00A0EA;
+      font-size: 8px;
+      position: relative;
+      top: -3px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="input-box">
+    <input type="text" id="input-text" autofocus>
+    <span id="span-value" style="display:none;"></span>
+  </div>
+
+
+</body>
+<script>
+  // 如果input里面的没有内容，回车不做事情，
+  var inputBox = document.getElementById('input-box');
+  var input = document.getElementById('input-text');
+  var body = document.getElementsByTagName('body')[0];
+  var spanValue = document.getElementById('span-value');
+
+  // 点击div里面的任何地方，都可以使input获取焦点
+  addEvent(inputBox, 'click', function () {
+    input.focus();
+  })
+
+  // addEventListener 兼容
+  function addEvent(element, type, callback) {
+
+    if (element.addEventListener) {
+      element.addEventListener(type, callback, false);
+    } else if (element.attachEvent) {
+      element.attachEvent('on' + type, callback);
+    } else {
+      element['on' + type] = callback;
+    }
+  }
+  addEvent(body, 'mousedown', function () {
+    addDom();
+  })
+
+  function doKey(e) {
+    // keydown 兼容
+    var currKey = 0,
+      e = event || window.event || arguments.callee.caller.arguments[0];
+    currKey = e.keyCode || e.which || e.charCode;
+    if (e && e.keyCode == 13) { // enter 键
+      addDom();
+    }
+  }
+
+
+  inputBox.onkeyup = function () {
+    console.log('=================');
+
+    spanValue.innerText = input.value;
+    console.log(spanValue);
+    this.style.width = spanValue.width;
+  }
+
+
+  // 要做的事情
+  var i = 0;
+  function addDom() {
+    //要做的事情
+    var value = input.value;
+    if (value && value.length > 0) {
+      if (inputBox.children.length > 1) {
+        if (inputBox.getElementsByClassName('chosen').length > 4) {
+          input.value = '';
+          alert('已到达最大值');
+          return;
+        }
+      }
+      var span = document.createElement('span');
+      span.className = 'chosen';
+      span.setAttribute('title', value)
+      var spanText = document.createElement('span');
+      spanText.className = 'text';
+      spanText.innerText = value;
+      var spanClose = document.createElement('span');
+      spanClose.className = 'chosen-remove';
+      spanClose.innerText = 'x';
+      span.appendChild(spanText);
+      span.appendChild(spanClose);
+
+      inputBox.insertBefore(span, input);
+      addEvent(spanClose, 'click', function () {
+        span.style.display = 'none';
+      })
+      input.value = '';
+      input.focus();
+
+    }
+  }
+
+  document.onkeydown = doKey;
+
+</script>
+
+</html>
